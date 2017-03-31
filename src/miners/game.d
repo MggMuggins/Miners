@@ -2,10 +2,10 @@
 // See copyright notice in src/charge/charge.d (GPLv2 only).
 module miners.game;
 
-import std.file : isFile, isDir;
 import std.stdio : writefln;
 import std.string : format;
 
+import stdx.file : isFile, isDir;
 import stdx.conv : toUint;
 import stdx.regexp : RegExp;
 
@@ -646,6 +646,8 @@ protected:
 
 	override void displayError(string[] texts, bool panic)
 	{
+		l.warn("displayError %s %s", texts, panic);
+		writefln("displayError %s %s", texts, panic);
 		push(new ErrorMenu(this, texts, panic));
 	}
 }
